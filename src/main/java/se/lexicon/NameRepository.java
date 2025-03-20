@@ -76,7 +76,8 @@ public class NameRepository {
      * @return True if the fullName is added successfully; false if it already exists.
      */
     public static boolean add(String fullName) {
-        if (find(fullName) != null) {
+        fullName = fullName.trim();
+        if (find(fullName) != null || fullName.isEmpty()) {
             return false;
         }
         names = Arrays.copyOf(names, names.length + 1);
